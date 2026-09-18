@@ -1,0 +1,18 @@
+package main
+
+import (
+	"log/slog"
+
+	"github.com/gin-gonic/gin"
+)
+
+func main() {
+	r := gin.Default()
+
+	r.GET("/healthz", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"status": "ok"})
+	})
+	slog.Info("服务启动", "addr", ":8080")
+	r.Run(":8080")
+}
