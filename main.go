@@ -16,6 +16,12 @@ func main() {
 	}
 	fmt.Printf("解析结果：Addr=%q, DSN=%q ", cfg.Server.Addr, cfg.MySQL.DSN)
 	r := gin.Default()
+	db, err := OpenDB(cfg.MySQL.DSN)
+	if err != nil {
+		slog.Error("连接数据库失败", "err", err)
+		os.Exit(1)
+	}
+	_ = db
 
 	r.GET("/healthz", func(c *gin.Context) {
 		c.JSON(200, gin.H{"status": "ok"})

@@ -1,6 +1,6 @@
 server:
   addr: ":8080"
 mysql:
-  dsn: ""
+  dsn: "root:200279@TCP(127.0.0.1:3306"
 jwt:
   secret: "practice-secret-change-me"
