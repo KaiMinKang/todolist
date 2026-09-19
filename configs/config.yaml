@@ -1,0 +1,6 @@
+server:
+  addr: ":8080"
+mysql:
+  dsn: ""
+jwt:
+  secret: "practice-secret-change-me"
